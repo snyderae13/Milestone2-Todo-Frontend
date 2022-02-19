@@ -1,15 +1,19 @@
 import './App.css';
 import React from 'react';
-import {ReactBrowser as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavMenu from './components/NavMenu.js';
 import TaskList from './components/TaskList.js';
 import NewDetailedTask from './components/NewDetailTask';
-import Container from 'react-bootstrap/Component';
+import Container from 'react-bootstrap/Container';
 
 function App() {
+  const navStyle = {
+    marginLeft: '0px',
+    marginRight: '0px'
+}
   return (
-    <Container className="App">
+    <Container style={navStyle} >
       <NavMenu />
       <Router>
         <Routes>
