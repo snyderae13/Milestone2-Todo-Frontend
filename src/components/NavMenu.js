@@ -4,10 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const NavMenu = () => {
+    const navStyle = {
+        padding: '0px'
+    }
   return (
     <div>
         <Navbar bg="primary" variant="dark">
-            <Container>
+            <Container stlye={navStyle}>
                 
                 <Navbar.Brand href='#home'>ToDo</Navbar.Brand>
                 <Navbar.Toggle aria-controls=" basic-navbar-nav"/>
