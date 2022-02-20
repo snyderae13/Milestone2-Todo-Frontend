@@ -6,6 +6,7 @@ import NavMenu from './components/NavMenu.js';
 import TaskList from './components/TaskList.js';
 import NewDetailedTask from './components/NewDetailTask';
 import Container from 'react-bootstrap/Container';
+import NewSimpleTask from './components/NewSimpleTask';
 
 function App() {
   const navStyle = {
@@ -15,6 +16,7 @@ function App() {
   return (
     <Container style={navStyle} >
       <NavMenu />
+      <NewSimpleTask/>
       <Router>
         <Routes>
           <Route path='/todos' element={<TaskList priorities={false} dueDates={false}/>} />
