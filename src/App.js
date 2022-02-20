@@ -17,6 +17,7 @@ function App() {
     <Container style={navStyle} >
       <NavMenu />
       <NewSimpleTask/>
+      <NewDetailedTask/>
       <Router>
         <Routes>
           <Route path='/todos' element={<TaskList priorities={false} dueDates={false}/>} />
