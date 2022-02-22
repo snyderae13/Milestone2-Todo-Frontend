@@ -60,11 +60,30 @@ const TaskList = (props) => {
 
         // Making a TaskGroup by priority and passing in the header and appropriate data as props
         groupTodosList = priorityHeaders.map((priority, index) => {
-            data = sortedTasks[index];
+            data = sortedTodos[index];
             return (
                 <TaskGroup key={index} header={priority} data={data} />
             )
         })
+    }
+
+    if (dueDates) {
+        let todayTasks = [];
+        let tomorrowTasks = [];
+        let thisWeekTasks = [];
+        let futureTasks = [];
+
+        const sortByDate = (date) => {
+            let today = new Date();
+            
+        }
+        
+        const dueDateHeaders = [
+            'Due Today',
+            'Due Tomorrow',
+            'Due Within the Next 7 Days',
+            'Future Due Dates'
+        ]
     }
 
     return(
