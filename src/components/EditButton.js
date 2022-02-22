@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import {Button} from 'react-bootstrap';
 
-const EditButton = (props) => {
-    return(
-        <div>EditButton</div>
+function EditButton(props) {
+    let id = props.id;
+    let editBtnStyle = {
+        padding: "0rem 0.25rem"
+    }
+    
+    return (
+        <Button style={editBtnStyle} className="edit-button btn-secondary">
+            <i className="far fa-edit"></i>
+        </Button>
     )
 }
 
-export default EditButton
+export default EditButton;

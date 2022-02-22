@@ -9,7 +9,6 @@ const DisplayContainer = (props) => {
 
     return(
         <div >
-            <div>DisplayContainer</div>
             <TaskList priorities={priorities} dueDates={dueDates}/>
             <NewSimpleTask />
         </div>

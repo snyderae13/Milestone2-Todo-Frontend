@@ -88,7 +88,6 @@ const TaskList = (props) => {
 
     return(
         <div>
-            <div>TodoList</div>
             {groupTodosList}
         </div>
         
