@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavMenu from './components/NavMenu.js';
 import DisplayContainer from './components/DisplayContainer.js';
-import NewDetailedTask from './components/NewDetailTask';
+import NewDetailedTask from './components/DetailedTask';
 import Container from 'react-bootstrap/Container';
 import NewSimpleTask from './components/NewSimpleTask';
 
