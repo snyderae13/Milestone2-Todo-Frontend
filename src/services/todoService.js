@@ -5,6 +5,10 @@ class TodoDataService {
         return axios.get('http://localhost:3456/todos')
     }
 
+    getTodo = (id) => {
+        return axios.get(`http://localhost:3456/todos/${id}`)
+    }
+
     createTodo = (data) => {
         return axios.post('http://localhost:3456/todos/new', data)
         

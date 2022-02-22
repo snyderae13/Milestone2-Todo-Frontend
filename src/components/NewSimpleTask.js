@@ -14,7 +14,7 @@ const NewSimpleTask = () => {
   let [priority, setPriority] = useState("");
   let [dueDate, setDueDate] = useState("");
 
-  // going to need useEffect to get the post function to work
+  
 
   // handleSubmit will need to be able to create a data object when the submit button is clicked
 
@@ -24,6 +24,16 @@ const NewSimpleTask = () => {
     TodoDataService.createTodo(data);
     console.log(data);
   };
+
+  
+
+
+
+
+
+
+
+
 
   return (
     <div>
