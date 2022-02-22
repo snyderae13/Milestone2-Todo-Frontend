@@ -1,7 +1,6 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
-const EditButton = () => {
+const EditButton = (props) => {
     return(
         <div>EditButton</div>
     )

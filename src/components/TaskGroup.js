@@ -1,9 +1,22 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import TaskRow from './TaskRow';
 
-const TaskGroup = () => {
+const TaskGroup = (props) => {
+    let tasksList = [];
+    let header = props.header;
+
+    // Map over tasks to make list with <TaskRow />
+    
     return(
-        <div>TaskGroup</div>
+        <div>
+            <div>TaskGroup</div>
+            <div>
+                {header}
+            </div>
+            <ul>
+                {tasksList}
+            </ul>
+        </div>
     )
 }
 

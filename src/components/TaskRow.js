@@ -1,9 +1,10 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import EditButton from './EditButton';
+import DeleteButton from './DeleteButton';
 
-const TaskRow = () => {
+const TaskRow = (props) => {
     return(
-        <div>TaskRow</div>
+        <li>TaskRow</li>
     )
 }
 
