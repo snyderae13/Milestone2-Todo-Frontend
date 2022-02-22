@@ -6,11 +6,12 @@ class TodoDataService {
     }
 
     createTodo = (data) => {
-        return axios.post('http://localhost:3456/todos/new')
+        return axios.post('http://localhost:3456/todos/new', data)
+        
     }
 
     updateTodo = (id, data) => {
-        return axios.put(`http://localhost:3456/todos/${id}`)
+        return axios.put(`http://localhost:3456/todos/${id}`, data)
     }
 
     deleteTodo = (id) => {
