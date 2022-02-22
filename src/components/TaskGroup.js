@@ -3,23 +3,23 @@ import TaskRow from './TaskRow';
 
 const TaskGroup = (props) => {
     //Calling props
-    let tasksList = [];
+    let todosList = [];
     let header = props.header;
     let data = props.data;
     
     //Mapping and returning tasks
     
     if(data.length > 0) {
-        tasksList = data.map(task => {
+        todosList = data.map(todo => {
         return(
             <li>
-                <TaskRow key={task._id} task={task} buttons={true}/>
+                <TaskRow key={todo._id} todo={todo} buttons={true}/>
             </li>
             )
         })
     } else {
-       task = [{_id: "", name: "No Todos Found", priority: "", dueDate: "", description: ""}]
-        tasksList = [<TaskRow key={'noTask'} buttons={false} task={task}/>] 
+       let todo = [{_id: "", name: "No Todos Found", priority: "", dueDate: "", description: ""}]
+        todosList = [<TaskRow key={'noTask'} buttons={false} todo={todo}/>] 
     }
     
     return(
@@ -29,7 +29,7 @@ const TaskGroup = (props) => {
                 {header}
             </div>
             <ul>
-                {tasksList}
+                {todosList}
             </ul>
         </div>
     )
