@@ -1,10 +1,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const Tasks = () => {
+const EditButton = () => {
     return(
-        <div>Tasks</div>
+        <div>EditButton</div>
     )
 }
 
-export default Tasks
+export default EditButton
