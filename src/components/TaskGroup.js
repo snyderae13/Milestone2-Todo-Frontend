@@ -12,9 +12,7 @@ const TaskGroup = (props) => {
     if(data.length > 0) {
         todosList = data.map(todo => {
         return(
-            <li>
                 <TaskRow key={todo._id} todo={todo} buttons={true}/>
-            </li>
             )
         })
     } else {
@@ -24,7 +22,6 @@ const TaskGroup = (props) => {
     
     return(
         <div>
-            <div>TaskGroup</div>
             <div>
                 {header}
             </div>

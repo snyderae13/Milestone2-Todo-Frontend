@@ -16,8 +16,6 @@ function App() {
   return (
     <Container style={navStyle} >
       <NavMenu />
-      <NewSimpleTask/>
-      <NewDetailedTask/>
       <Router>
         <Routes>
           <Route path='/todos' element={<DisplayContainer priorities={false} dueDates={false}/>} />
