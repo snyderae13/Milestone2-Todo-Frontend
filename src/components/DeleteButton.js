@@ -1,10 +1,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const TaskHeader = () => {
+const DeleteButton = () => {
     return(
-        <div>TaskHeader</div>
+        <div>DeleteButton</div>
     )
 }
 
-export default TaskHeader
+export default DeleteButton
