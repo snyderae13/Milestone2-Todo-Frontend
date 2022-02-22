@@ -16,11 +16,11 @@ const NavMenu = () => {
                 <Navbar.Toggle aria-controls=" basic-navbar-nav"/>
                 <Navbar.Collapse>
                     <Nav className='me-auto'>
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/new">New Task</Nav.Link>
+                        <Nav.Link href="/todos">Home</Nav.Link>
+                        <Nav.Link href="/todos/new">New Task</Nav.Link>
                         <NavDropdown title="Sort By" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/priorities">Priority</NavDropdown.Item>
-                        <NavDropdown.Item href="/duedates">Due Date</NavDropdown.Item>
+                        <NavDropdown.Item href="/todos/priorities">Priority</NavDropdown.Item>
+                        <NavDropdown.Item href="/todos/duedates">Due Date</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                     

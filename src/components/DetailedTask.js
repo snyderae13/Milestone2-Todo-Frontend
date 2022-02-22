@@ -1,29 +1,29 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Col, Row} from 'react-bootstrap'
 import TodoDataService from '../services/todoService'
 
+const NewDetailTask = () => {
+    //useState for each value we need plus description
 
-const NewSimpleTask = () => {
-  // set up state to go through todos and setTodos
-
-  
-  
-  let [name, setName] = useState("");
+    let [name, setName] = useState("");
   let [priority, setPriority] = useState("");
   let [dueDate, setDueDate] = useState("");
+  let [description, setDescription] = useState("");
 
-  // going to need useEffect to get the post function to work
-
-  // handleSubmit will need to be able to create a data object when the submit button is clicked
+  // need another submit but add description this time and console log the data 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let data = {  name: name, priority: priority, dueDate: dueDate };
+    let data = {  name: name, priority: priority, dueDate: dueDate, description: description };
     TodoDataService.createTodo(data);
     console.log(data);
   };
+
+
+
+
 
   return (
     <div>
@@ -37,16 +37,11 @@ const NewSimpleTask = () => {
             New Task
           </Form.Label>
           <Col sm={10}>
-            <Form.Control
-              type="text"
-              placeholder="Task"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+            <Form.Control type="text" placeholder="Task" onChange={(e) => setName(e.target.value)} required/>
           </Col>
         </Form.Group>
         <Form.Select aria-label="Default select example" onChange={(e) => setPriority(e.target.value)} required>
-          <option value="" disabled required> Choose Priority</option>
+          <option value="" disabled selected> Choose Priority</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
@@ -57,21 +52,27 @@ const NewSimpleTask = () => {
             Due Date
           </Form.Label>
           <Col sm={10}>
-            <Form.Control
-              type="date"
-              onChange={(e) => setDueDate(e.target.value)}
-              required
-            />
+            <Form.Control type="date" onChange={(e) => setDueDate(e.target.value)} required/>
           </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm={2}>
+                Description
+            </Form.Label>
+            <Col sm={10}>
+            <Form.Control as="textarea" rows={3} placeholder="Description" onChange={(e) => setDescription(e.target.value)} required/>
+            </Col>
+
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Col sm={{ span: 10, offset: 5 }}>
             <Button type="submit">Add New Task</Button>
           </Col>
         </Form.Group>
+        
       </Form>
     </div>
   );
 };
 
-export default NewSimpleTask
+export default NewDetailTask
