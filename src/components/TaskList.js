@@ -1,9 +1,17 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import TaskGroup from './TaskGroup';
 
-const TaskList = () => {
+const TaskList = (props) => {
+    let groupTaskList = [];
+
+    // Map on data to sort by priority or date <TaskGroup />
+
     return(
-        <div>TaskList</div>
+        <div>
+            <div>TaskList</div>
+            {groupTaskList}
+        </div>
+        
     )
 }
 

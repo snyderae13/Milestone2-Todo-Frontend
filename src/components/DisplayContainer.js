@@ -1,9 +1,14 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import NewSimpleTask from './NewSimpleTask';
+import TaskList from './TaskList';
 
-const DisplayContainer = () => {
+const DisplayContainer = (props) => {
     return(
-        <div>DisplayContainer</div>
+        <div>
+            <div>DisplayContainer</div>
+            <TaskList />
+            <NewSimpleTask />
+        </div>
     )
 }
 
