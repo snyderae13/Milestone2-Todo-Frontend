@@ -20,6 +20,17 @@ const NewDetailTask = () => {
     TodoDataService.createTodo(data);
     console.log(data);
   };
+  // handleUpdate that needs an id and data, the data needs to be checked and then pulled into the input fields
+  
+
+
+
+
+
+
+
+
+
 
 
 
