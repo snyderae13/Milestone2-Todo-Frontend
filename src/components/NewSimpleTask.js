@@ -1,23 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Col, Row} from 'react-bootstrap'
 import TodoDataService from '../services/todoService'
 
-
+// Called from DisplayContainer.js
 const NewSimpleTask = () => {
   // set up state to go through todos and setTodos
-
-  
-  
   let [name, setName] = useState("");
   let [priority, setPriority] = useState("");
   let [dueDate, setDueDate] = useState("");
 
-  
-
   // handleSubmit will need to be able to create a data object when the submit button is clicked
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let data = {  name: name, priority: priority, dueDate: dueDate };
@@ -25,16 +18,7 @@ const NewSimpleTask = () => {
     console.log(data);
   };
 
-  
-
-
-
-
-
-
-
-
-
+  // Form to add a new Task displayed on the Sorted pages. Only required fields present
   return (
     <div>
       <Form onSubmit={handleSubmit}>

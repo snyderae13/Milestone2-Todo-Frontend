@@ -6,15 +6,16 @@ import NavMenu from './components/NavMenu.js';
 import DisplayContainer from './components/DisplayContainer.js';
 import NewDetailedTask from './components/DetailedTask';
 import Container from 'react-bootstrap/Container';
-import NewSimpleTask from './components/NewSimpleTask';
 
 function App() {
-  const navStyle = {
+  // Style for the app
+  const appStyle = {
     marginLeft: '0px',
     marginRight: '0px'
-}
+  }
+
   return (
-    <Container style={navStyle} >
+    <Container style={appStyle} >
       <NavMenu />
       <Router>
         <Routes>
