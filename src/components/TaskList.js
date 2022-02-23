@@ -67,23 +67,78 @@ const TaskList = (props) => {
         })
     }
 
+    // Determine if sorting by dueDates
     if (dueDates) {
-        let todayTasks = [];
-        let tomorrowTasks = [];
-        let thisWeekTasks = [];
-        let futureTasks = [];
+        let pastTodos = []
+        let todayTodos = [];
+        let tomorrowTodos = [];
+        let thisWeekTodos = [];
+        let futureTodos = [];
 
-        const sortByDate = (date) => {
-            let today = new Date();
-            
+        // Need today's date, but do not want time to be part of it, since user selected due date did not have a time
+        const todayDate = new Date();
+        let todayYear = todayDate.getFullYear();
+        let todayMonth = todayDate.getMonth();
+        let todayDay = todayDate.getDate();
+        let today = new Date(todayYear, todayMonth, todayDay);
+
+        // Calculate the number of milliseconds(ms) in one day
+        const msInOneDay = 1000 * 60 * 60 * 24;
+
+        // Function to sort tasks by dueDate categories and push them to an array of the same type
+        const sortByDate = (todo) => {
+            // Find the difference in ms between today and the dueDate
+            let deconstructedDueDate = todo.dueDate.split('-')
+            let dueYear = deconstructedDueDate[0];
+            // Months in the date function are from 0 to 11, so need to subtract one from the actual month to get the correct integer to use in Date()
+            let dueMonth = deconstructedDueDate[1] - 1;
+            let dueDay = deconstructedDueDate[2];
+
+            let dueDate = new Date(dueYear, dueMonth, dueDay)
+
+            let daysUntilDue = (dueDate.getTime() - today.getTime()) / msInOneDay;
+
+            if (daysUntilDue < 0) {
+                pastTodos.push(todo);
+            } else if (daysUntilDue === 0) {
+                todayTodos.push(todo);
+            } else if (daysUntilDue === 1) {
+                tomorrowTodos.push(todo);
+            } else if (daysUntilDue <= 7) {
+                thisWeekTodos.push(todo);
+            } else {
+                futureTodos.push(todo);
+            }
         }
         
+        // Iterating through all of the todos and using the sorting function
+        for (let i = 0; i < todoData.length; i++) {
+            let todo = todoData[i];
+            sortByDate(todo)
+        }
+
+        // Creating an array of arrays, where each inner array represents a specific dueDate category
+        let sortedTodos = [pastTodos, todayTodos, tomorrowTodos, thisWeekTodos, futureTodos];
+
+        // Defining the headers to be used when sorting by dueDate
         const dueDateHeaders = [
+            'Past Due',
             'Due Today',
             'Due Tomorrow',
             'Due Within the Next 7 Days',
             'Future Due Dates'
-        ]
+        ];
+
+        // Header background color
+        let headerColors = ['red', 'orange', 'yellow', 'lightblue', 'lightgray']
+        
+        groupTodosList = dueDateHeaders.map((dueDate, index) => {
+            data = sortedTodos[index];
+            let headerStyle = {backgroundColor: headerColors[index]}
+            return (
+                <TaskGroup key={index} header={dueDate} data={data} headerStyle={headerStyle}/>
+            )
+        });
     }
 
     return(
