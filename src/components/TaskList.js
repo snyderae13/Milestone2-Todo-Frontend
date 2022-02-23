@@ -16,7 +16,7 @@ const TaskList = (props) => {
     const dueDates = props.dueDates;
 
     // Test data
-    let data = [{_id: "", name: "Test Data in TaskList.js", priority: "High", dueDate: "", description: ""}]
+    let data = [{_id: "", name: "", priority: "", dueDate: "", description: ""}]
     
     // Need to fill groupTodoList whether sorting by priority or dueDate
     let groupTodosList = [];
@@ -58,11 +58,15 @@ const TaskList = (props) => {
             'Low: Just a reminder for now'
         ]
 
+        // Header background color
+        let headerColors = ['red', 'orange', 'yellow', 'lightblue']
+
         // Making a TaskGroup by priority and passing in the header and appropriate data as props
         groupTodosList = priorityHeaders.map((priority, index) => {
             data = sortedTodos[index];
+            let headerStyle = {backgroundColor: headerColors[index]}
             return (
-                <TaskGroup key={index} header={priority} data={data} />
+                <TaskGroup key={index} header={priority} data={data} headerStyle={headerStyle}/>
             )
         })
     }
