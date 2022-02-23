@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import TaskGroup from './TaskGroup';
 import TodoDataService from '../services/todoService.js'
 
+// Called from DisplayContainer.js
 const TaskList = (props) => {
     // Use State for data pulled from database
     let [todoData, setTodoData] = useState([]);
@@ -64,7 +65,7 @@ const TaskList = (props) => {
         // Making a TaskGroup by priority and passing in the header and appropriate data as props
         groupTodosList = priorityHeaders.map((priority, index) => {
             data = sortedTodos[index];
-            let headerStyle = {backgroundColor: headerColors[index]}
+            let headerStyle = {backgroundColor: headerColors[index], borderRadius: "0.5rem"}
             return (
                 <TaskGroup key={index} header={priority} data={data} headerStyle={headerStyle}/>
             )
@@ -99,7 +100,7 @@ const TaskList = (props) => {
             let dueDay = deconstructedDueDate[2];
 
             let dueDate = new Date(dueYear, dueMonth, dueDay)
-
+            // Find the difference in ms between today and the dueDate
             let daysUntilDue = (dueDate.getTime() - today.getTime()) / msInOneDay;
 
             if (daysUntilDue < 0) {
@@ -136,15 +137,17 @@ const TaskList = (props) => {
         // Header background color
         let headerColors = ['red', 'orange', 'yellow', 'lightblue', 'lightgray']
         
+        // Making a TaskGroup by dueDate and passing in the header and appropriate data as props
         groupTodosList = dueDateHeaders.map((dueDate, index) => {
             data = sortedTodos[index];
-            let headerStyle = {backgroundColor: headerColors[index]}
+            let headerStyle = {backgroundColor: headerColors[index], borderRadius: "0.5rem"}
             return (
                 <TaskGroup key={index} header={dueDate} data={data} headerStyle={headerStyle}/>
             )
         });
     }
 
+    // Passes in the TaskGroup React components for whichever sorting method was chosen.
     return(
         <div>
             {groupTodosList}
