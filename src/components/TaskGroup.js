@@ -6,6 +6,7 @@ const TaskGroup = (props) => {
     let todosList = [];
     let header = props.header;
     let data = props.data;
+    let headerStyle = props.headerStyle;
     
     //Mapping and returning tasks
     
@@ -22,7 +23,7 @@ const TaskGroup = (props) => {
     
     return(
         <div>
-            <div>
+            <div style={headerStyle}>
                 {header}
             </div>
             <ul>
