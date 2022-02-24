@@ -23,9 +23,14 @@ const TaskGroup = (props) => {
         todosList = [<TaskRow key={'noTask'} buttons={false} todo={todo}/>] 
     }
     
+    // Style for the GroupTask
+    const groupStyle = {
+        margin: "1rem 0.5rem"
+    }
+
     // headerStyle was passed in as prop from TaskList and determines the background color of each header.
     return(
-        <div>
+        <div style={groupStyle}>
             <div style={headerStyle}>
                 {header}
             </div>
