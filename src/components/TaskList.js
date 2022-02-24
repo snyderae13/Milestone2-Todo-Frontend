@@ -65,7 +65,13 @@ const TaskList = (props) => {
         // Making a TaskGroup by priority and passing in the header and appropriate data as props
         groupTodosList = priorityHeaders.map((priority, index) => {
             data = sortedTodos[index];
-            let headerStyle = {backgroundColor: headerColors[index], borderRadius: "0.5rem"}
+            let headerStyle = {
+                backgroundColor: headerColors[index], 
+                borderRadius: "2rem",
+                padding: "0.25rem 0rem",
+                justifyContent: "center",
+                display: "flex"
+            }
             return (
                 <TaskGroup key={index} header={priority} data={data} headerStyle={headerStyle}/>
             )
@@ -140,7 +146,13 @@ const TaskList = (props) => {
         // Making a TaskGroup by dueDate and passing in the header and appropriate data as props
         groupTodosList = dueDateHeaders.map((dueDate, index) => {
             data = sortedTodos[index];
-            let headerStyle = {backgroundColor: headerColors[index], borderRadius: "0.5rem"}
+            let headerStyle = {
+                backgroundColor: headerColors[index], 
+                borderRadius: "2rem",
+                padding: "0.25rem 0rem",
+                justifyContent: "center",
+                display: "flex"
+            }
             return (
                 <TaskGroup key={index} header={dueDate} data={data} headerStyle={headerStyle}/>
             )

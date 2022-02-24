@@ -8,14 +8,8 @@ import NewDetailedTask from './components/DetailedTask';
 import Container from 'react-bootstrap/Container';
 
 function App() {
-  // Style for the app
-  const appStyle = {
-    marginLeft: '0px',
-    marginRight: '0px'
-  }
-
   return (
-    <Container style={appStyle} >
+    <Container >
       <NavMenu />
       <Router>
         <Routes>
