@@ -18,9 +18,16 @@ const NewSimpleTask = () => {
     console.log(data);
   };
 
+
+  const taskStyling = {
+    border: " 2px solid grey",
+    padding: "5px",
+    borderRadius: "5px"
+  }
+
   // Form to add a new Task displayed on the Sorted pages. Only required fields present
   return (
-    <div>
+    <div style={taskStyling}>
       <Form onSubmit={handleSubmit}>
         <Form.Group
           as={Row}
@@ -39,13 +46,18 @@ const NewSimpleTask = () => {
             />
           </Col>
         </Form.Group>
-        <Form.Select aria-label="Default select example" onChange={(e) => setPriority(e.target.value)} required>
+        <Form.Group as={Row} className="mb-3 mt-3">
+          <Form.Label column sm={2} >Priority</Form.Label>
+        <Col sm={10}>
+        <Form.Select  aria-label="Default select example" onChange={(e) => setPriority(e.target.value)} required>
           <option value="" disabled required> Choose Priority</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
           <option value='Critical'>Critical</option>
         </Form.Select>
+        </Col>
+        </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Due Date

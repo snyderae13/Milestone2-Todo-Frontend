@@ -3,6 +3,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Col, Row} from 'react-bootstrap'
 import TodoDataService from '../services/todoService'
+import { getOverlayDirection } from 'react-bootstrap/esm/helpers';
 
 const NewDetailTask = () => {
     //useState for each value we need plus description
@@ -24,7 +25,10 @@ const NewDetailTask = () => {
   
 
 
-
+  const taskStyle = {
+    border: 2px solid grey;
+    border-radius: 10px;
+  }
 
 
 
