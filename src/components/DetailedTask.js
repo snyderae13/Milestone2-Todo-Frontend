@@ -49,7 +49,7 @@ const NewDetailTask = (props) => {
     }, [])
 
     useEffect(() => {
-      console.log(taskData);
+      
       if(taskData.length > 0){
         setName(taskData[0].name)
         setPriority(taskData[0].priority)
@@ -68,7 +68,11 @@ const NewDetailTask = (props) => {
   
   
 
-
+  const taskStyling = {
+    border: " 2px solid grey",
+    padding: "5px",
+    borderRadius: "5px"
+  }
 
 
 
@@ -81,7 +85,7 @@ const NewDetailTask = (props) => {
 
 
   return (
-    <div>
+    <div style={taskStyling}>
       <Form onSubmit={handleSubmit}>
         <Form.Group
           as={Row}
@@ -95,6 +99,9 @@ const NewDetailTask = (props) => {
             <Form.Control type="text" placeholder="Task" onChange={(e) => setName(e.target.value)} required value={name}/>
           </Col>
         </Form.Group>
+        <Form.Group as={Row} className="mb-3 mt-3">
+          <Form.Label column sm={2}>Priority</Form.Label>
+        <Col sm={10}>
         <Form.Select aria-label="Default select example" onChange={(e) => setPriority(e.target.value)} required value={priority}>
           <option disabled > Choose Priority</option>
           <option value="Low">Low</option>
@@ -102,6 +109,8 @@ const NewDetailTask = (props) => {
           <option value="High">High</option>
           <option value='Critical'>Critical</option>
         </Form.Select>
+        </Col>
+        </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Due Date
