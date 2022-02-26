@@ -49,7 +49,13 @@ const TaskRow = (props) => {
     const detailedView = () => {
         return(
             <li>
-                <h2><u>{props.todo.name}</u></h2>
+                <div style={rowStyle}>
+                    <h2><u>{props.todo.name}</u></h2>
+                    <div style={buttonGroupStyle}>
+                        <EditButton id={todo._id}/>
+                        <DeleteButton id={todo._id} />
+                    </div>
+                </div>
                 <div style={detailedStyle}>
                     <h4>Priority: {props.todo.priority}</h4>
                     <h4>Due Date: {props.todo.dueDate}</h4>
