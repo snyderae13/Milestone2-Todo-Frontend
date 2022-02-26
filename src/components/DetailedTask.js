@@ -71,7 +71,8 @@ const NewDetailTask = (props) => {
   const taskStyling = {
     border: " 2px solid grey",
     padding: "5px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    marginTop: "15px"
   }
 
 
