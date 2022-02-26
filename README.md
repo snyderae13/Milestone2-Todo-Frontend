@@ -1,3 +1,95 @@
+# TODO MERN Stack Project
+
+## Inspiration
+Whenever we start a collaborative coding project we create a Todo list. A Todo List allows us to delegate individual tasks to group members. By doing so, we are able to stay on track with the progress of our project. 
+
+## How to Use
+ The default page loads on Todos sorted by Due Dates in the following catergories: Past Due, Due Today, Due Tomorrow, Due Within the Next 7 Days, and Future Due Dates. Each Todo shows up under the appropriate catergory with buttons to edit the Todo or to delete the Todo. The Edit button opens up a detailed Todo view form, pulling in the data of the Todo and allowing you to make any changes you would like. Clicking on a Todo expands the Todo's information. At the bottom of the page, there is a simple form to create a new Todo with only the required information: The Name of the Todo, The Priority, and The Due Date. 
+
+A new detailed Todo can be created by clicking on the 'New Task' Link in the NavMenu. It includes the required fields and an optional field : Description of the Todo.
+
+A Dropdown Menu in the NavMenu gives the user the option to either sort by Priority or Due Date of the Todo List. The Priority catergories are: Critical, High, Medium, and Low. 
+
+### Technologies Used
+Project was bootstraped with [Create React App](https://github.com/facebook/create-react-app).
+Node.js
+React
+MongoDB
+Bootstrap
+Axios
+Express
+
+### Outstanding Bugs
+Display doesn't refresh after deleting a Todo.
+
+### Proposed Future Functionality
+Refreshing after deleting a Todo.
+Implementing a User Login
+Sub-Tasks
+Adding the following fields: Estimated Work Time, Status( not started, in progress, etc. )
+
+
+### Contributors 
+Jamie Coleman
+Alec Snyder
+Courtney Spitzer
+
+
+### License
+Copyright 2022 Jamie Coleman, Alec Snyder, Courtney Spitzer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
