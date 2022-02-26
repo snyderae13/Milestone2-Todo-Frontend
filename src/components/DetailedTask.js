@@ -2,19 +2,22 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Form, Col, Row} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import TodoDataService from '../services/todoService'
 import { useParams } from 'react-router-dom';
 
 
 
 const NewDetailTask = (props) => {
-    //useState for each value we need plus description
-    let newTask = props.newTask;
-    
-    const {id} =  useParams();
-    
+  // navigate allows redirection to another page when the button is clicked
+  const navigate = useNavigate();  
+  
+  //useState for each value we need plus description
+  let newTask = props.newTask;
+  
+  const {id} =  useParams();
 
-    let [name, setName] = useState("");
+  let [name, setName] = useState("");
   let [priority, setPriority] = useState("");
   let [dueDate, setDueDate] = useState("");
   let [description, setDescription] = useState("");
@@ -26,47 +29,38 @@ const NewDetailTask = (props) => {
   const handleSubmit = (e) => {
     
     if(newTask){
-    let data = {  name: name, priority: priority, dueDate: dueDate, description: description };
-    TodoDataService.createTodo(data);
-    console.log(data);
+      let data = {  name: name, priority: priority, dueDate: dueDate, description: description };
+      TodoDataService.createTodo(data);
+      console.log(data);
     } else {
       let data ={  name: name, priority: priority, dueDate: dueDate, description: description, dateCreated: dateCreated}
-    TodoDataService.updateTodo(id,data);
-
+      TodoDataService.updateTodo(id,data);
+      navigate('/todos/new');
     }
   };
 
   // need a function thats going to pull the data from the id and check the data and pull into input fields 
 
-    //Once the first useEffect is runs, the second useEffect will allow us to put the data into the forms 
-    
-    useEffect((newTask )=> {
-      if(!newTask) {
-        
-        TodoDataService.getTodo(id).then (response => {setTaskData(response.data)
-        });
-      } 
-    }, [id])
-
-    useEffect(() => {
+  //Once the first useEffect is runs, the second useEffect will allow us to put the data into the forms 
+  
+  useEffect((newTask )=> {
+    if(!newTask) {
       
-      if(taskData.length > 0){
-        setName(taskData[0].name)
-        setPriority(taskData[0].priority)
-        setDueDate(taskData[0].dueDate)
-        setDescription(taskData[0].description)
-        setDateCreated(taskData[0].dateCreated)
-      }
-    }, [taskData])
+      TodoDataService.getTodo(id).then (response => {setTaskData(response.data)
+      });
+    } 
+  }, [id])
+
+  useEffect(() => {
     
-  
-
-
-
-
-  // handleUpdate is put into the handleSubmit to make it all one function 
-  
-  
+    if(taskData.length > 0){
+      setName(taskData[0].name)
+      setPriority(taskData[0].priority)
+      setDueDate(taskData[0].dueDate)
+      setDescription(taskData[0].description)
+      setDateCreated(taskData[0].dateCreated)
+    }
+  }, [taskData])
 
   const taskStyling = {
     border: " 2px solid grey",
@@ -74,16 +68,6 @@ const NewDetailTask = (props) => {
     borderRadius: "5px",
     marginTop: "15px"
   }
-
-
-
-
-
-
-
-
-
-
 
   return (
     <div style={taskStyling}>
