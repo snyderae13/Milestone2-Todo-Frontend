@@ -12,7 +12,7 @@ function EditButton(props) {
 
     // Handle click function redirects to the TaskForm, including the taskId as a param in the url
     const handleClick = (e) => {
-        navigate(id);
+        navigate(`/todos/${id}`);
     }
 
     // Style for the button to include space between the buttons
