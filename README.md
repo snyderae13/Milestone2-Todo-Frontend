@@ -27,7 +27,7 @@ Refreshing after deleting a Todo.
 Implementing a User Login
 Sub-Tasks
 Adding the following fields: Estimated Work Time, Status( not started, in progress, etc. )
-Add New Task on Homepage should refresh after submiting a new task, rather than having to refresh the entire page .
+
 
 
 ### Contributors 
