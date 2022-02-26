@@ -5,12 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const NavMenu = () => {
     const navStyle = {
-        padding: '0px'
+        padding: '5px',
+        borderRadius: "25px"
     }
   return (
     <div>
-        <Navbar bg="primary" variant="dark">
-            <Container stlye={navStyle}>
+        <Navbar bg="primary" variant="dark" className='rounded'>
+            <Container style={navStyle}>
                 
                 <Navbar.Brand href='/'>ToDo</Navbar.Brand>
                 <Navbar.Toggle aria-controls=" basic-navbar-nav"/>
