@@ -40,13 +40,13 @@ const NewDetailTask = (props) => {
 
     //Once the first useEffect is runs, the second useEffect will allow us to put the data into the forms 
     
-    useEffect((newTask )=> {
+    useEffect((newTask, id )=> {
       if(!newTask) {
         
         TodoDataService.getTodo(id).then (response => {setTaskData(response.data)
         });
       } 
-    })
+    }, [])
 
     useEffect(() => {
       
