@@ -15,11 +15,11 @@ class TodoDataService {
     }
 
     updateTodo = (id, data) => {
-        return axios.put(`https://todolistmilestone2.herokuapp.com/${id}`, data)
+        return axios.put(`https://todolistmilestone2.herokuapp.com/todos/${id}`, data)
     }
 
     deleteTodo = (id) => {
-        return axios.delete(`https://todolistmilestone2.herokuapp.com/${id}`)
+        return axios.delete(`https://todolistmilestone2.herokuapp.com/todos/${id}`)
     }
 
 }
