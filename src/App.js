@@ -13,6 +13,7 @@ function App() {
       <NavMenu />
       <Router>
         <Routes>
+          <Route path='/' element={<DisplayContainer dueDates={true} priorities={false}/>} />
           <Route path='/todos/' element={<DisplayContainer priorities={true} dueDates={false}/>} />
           <Route path='/todos/dueDates' element={<DisplayContainer dueDates={true} priorities={false}/>} />
           <Route path='/todos/new' element={<NewDetailedTask newTask={true}/>} />
