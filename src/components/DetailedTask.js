@@ -131,7 +131,7 @@ const NewDetailTask = (props) => {
         </Form.Group>
         <Form.Group as={Row} className="mb-3">
           <Col sm={{ span: 10, offset: 5 }}>
-            <Button type="submit">Add New Task</Button>
+            <Button type="submit">{newTask ? "Add New Task": "Submit Edits"}</Button>
           </Col>
         </Form.Group>
         
