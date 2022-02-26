@@ -46,7 +46,7 @@ const NewDetailTask = (props) => {
         TodoDataService.getTodo(id).then (response => {setTaskData(response.data)
         });
       } 
-    }, [])
+    })
 
     useEffect(() => {
       
