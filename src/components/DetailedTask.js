@@ -15,7 +15,7 @@ const NewDetailTask = (props) => {
   //useState for each value we need plus description
   let newTask = props.newTask;
   
-  const {id} =  useParams();
+  const {id, sort} =  useParams();
 
   let [name, setName] = useState("");
   let [priority, setPriority] = useState("");
@@ -35,7 +35,7 @@ const NewDetailTask = (props) => {
     } else {
       let data ={  name: name, priority: priority, dueDate: dueDate, description: description, dateCreated: dateCreated}
       TodoDataService.updateTodo(id,data);
-      navigate('/todos/new');
+      navigate(`/todos/${sort}`);
     }
   };
 

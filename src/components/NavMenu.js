@@ -19,7 +19,7 @@ const NavMenu = () => {
                     <Nav className='me-auto'>
                         <Nav.Link href="/todos/new">New Task</Nav.Link>
                         <NavDropdown title="Sort By" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/todos">Priority</NavDropdown.Item>
+                        <NavDropdown.Item href="/todos/priorities">Priority</NavDropdown.Item>
                         <NavDropdown.Item href="/todos/duedates">Due Date</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>

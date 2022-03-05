@@ -12,10 +12,8 @@ const NewSimpleTask = () => {
 
   // handleSubmit will need to be able to create a data object when the submit button is clicked
   const handleSubmit = (e) => {
-    
     let data = {  name: name, priority: priority, dueDate: dueDate };
     TodoDataService.createTodo(data);
-    console.log(data);
   };
 
 

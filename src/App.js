@@ -14,10 +14,10 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<DisplayContainer dueDates={true} priorities={false}/>} />
-          <Route path='/todos/' element={<DisplayContainer priorities={true} dueDates={false}/>} />
+          <Route path='/todos/priorities' element={<DisplayContainer priorities={true} dueDates={false}/>} />
           <Route path='/todos/dueDates' element={<DisplayContainer dueDates={true} priorities={false}/>} />
           <Route path='/todos/new' element={<NewDetailedTask newTask={true}/>} />
-          <Route path='/todos/:id' element={<NewDetailedTask newTask={false}/>} />
+          <Route path='/todos/:id/:sort' element={<NewDetailedTask newTask={false}/>} />
         </Routes>
       </Router>
     </Container>

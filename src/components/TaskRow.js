@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import EditButton from './EditButton';
-import DeleteButton from './DeleteButton';
 
 // Called from TaskGroup
 const TaskRow = (props) => {
@@ -20,14 +18,16 @@ const TaskRow = (props) => {
         marginTop: "5px"
     }
 
-    // Style for the button groups to make them justify right, while the task remains on the left.
-    const buttonGroupStyle = {
-        marginLeft: "auto"
-    }
-
     //Styling Views
     const detailedStyle = {
     textIndent: '2em'
+    }
+
+    // Style to use when detailed view is active
+    const detailedRowDisplay = {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
     }
 
     //Desciption placeholder
@@ -39,29 +39,25 @@ const TaskRow = (props) => {
     // This is the default view and only displays the task and the EditButton and DeleteButton, if needed.
     const simpleView = () => {
         return(
-            <li>
+            <div>
                 {row}
-            </li>
+            </div>
         )
     }
 
     // The detailed view is displayed when the task list item is clicked.
     const detailedView = () => {
         return(
-            <li>
+            <div style={detailedRowDisplay}>
                 <div style={rowStyle}>
                     <h2><u>{props.todo.name}</u></h2>
-                    <div style={buttonGroupStyle}>
-                        <EditButton id={todo._id}/>
-                        <DeleteButton id={todo._id} />
-                    </div>
                 </div>
                 <div style={detailedStyle}>
                     <h4>Priority: {props.todo.priority}</h4>
                     <h4>Due Date: {props.todo.dueDate}</h4>
                     <h4>Description: {props.todo.description}</h4>
                 </div>
-            </li>
+            </div>
         )
     }
 
@@ -70,10 +66,6 @@ const TaskRow = (props) => {
         row = [
             <div key={todo.id + todo.priority} style={rowStyle}>
                 {todo.name}
-                <div style={buttonGroupStyle}>
-                    <EditButton id={todo._id}/>
-                    <DeleteButton id={todo._id} />
-                </div>
             </div>
         ]
     } else {
