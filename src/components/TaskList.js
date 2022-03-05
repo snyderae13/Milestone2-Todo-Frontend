@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import TaskGroup from './TaskGroup';
+import { DeleteTodoContext } from '../context/DeleteTodoContext';
 import TodoDataService from '../services/todoService.js'
 
 // Called from DisplayContainer.js
@@ -7,10 +8,24 @@ const TaskList = (props) => {
     // Use State for data pulled from database
     let [todoData, setTodoData] = useState([]);
 
+    // Use State for refresh after deleting task
+    let [delFlag, toggleDelFlag] = useState(false)
+
+    // Handle clicking delete button, causing refresh of tasks
+    const handleDelClick = (id, delFlag) => {
+        try {
+            TodoDataService.deleteTodo(id);
+            toggleDelFlag(!delFlag)
+        }
+        catch(error) {
+            console.error(`Error while attempting to delete the task, ${error}`);
+        }
+    }
+
     // Retrieve data from the database then set the state 
     useEffect(() => {
         TodoDataService.getAll().then(response => {setTodoData(response.data)})
-    }, [])
+    }, [delFlag])
 
     // Accessing props that were passed in
     const priorities = props.priorities;
@@ -73,7 +88,7 @@ const TaskList = (props) => {
                 display: "flex"
             }
             return (
-                <TaskGroup key={index} header={priority} data={data} headerStyle={headerStyle}/>
+                <TaskGroup key={index} header={priority} data={data} headerStyle={headerStyle} sort={"priorities"}/>
             )
         })
     }
@@ -154,17 +169,20 @@ const TaskList = (props) => {
                 display: "flex"
             }
             return (
-                <TaskGroup key={index} header={dueDate} data={data} headerStyle={headerStyle}/>
+                <TaskGroup key={index} header={dueDate} data={data} headerStyle={headerStyle} sort={"dueDates"}/>
             )
         });
     }
 
     // Passes in the TaskGroup React components for whichever sorting method was chosen.
     return(
-        <div>
+        <DeleteTodoContext.Provider value={{
+                delFlag: delFlag,
+                handleDelClick: handleDelClick
+            }}
+        >
             {groupTodosList}
-        </div>
-        
+        </DeleteTodoContext.Provider>
     )
 }
 
