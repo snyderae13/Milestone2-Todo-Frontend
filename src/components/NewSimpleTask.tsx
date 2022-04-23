@@ -11,7 +11,7 @@ const NewSimpleTask = () => {
   let [dueDate, setDueDate] = useState("");
 
   // handleSubmit will need to be able to create a data object when the submit button is clicked
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     let data = {  name: name, priority: priority, dueDate: dueDate };
     TodoDataService.createTodo(data);
   };
@@ -48,7 +48,7 @@ const NewSimpleTask = () => {
           <Form.Label column sm={2} >Priority</Form.Label>
         <Col sm={10}>
         <Form.Select  aria-label="Default select example" onChange={(e) => setPriority(e.target.value)} required>
-          <option value="" disabled required> Choose Priority</option>
+          <option value="" disabled > Choose Priority</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>

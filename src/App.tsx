@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavMenu from './components/NavMenu.js';
-import DisplayContainer from './components/DisplayContainer.js';
+import NavMenu from './components/NavMenu';
+import DisplayContainer from './components/DisplayContainer';
 import NewDetailedTask from './components/DetailedTask';
 import Container from 'react-bootstrap/Container';
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 // Called from TaskGroup
-const TaskRow = (props) => {
+const TaskRow = (props: any) => {
     // Set state for which view to display. view State changed by clicking on a list item.
     let [view, setView] = useState(false)
 
@@ -10,7 +10,7 @@ const TaskRow = (props) => {
     const buttons = props.buttons;
 
     // Initialized to be used with the if/else block to determine if buttons are needed
-    let row = [];
+    let row: {} = [];
 
     // Style for each row
     const rowStyle = {
@@ -48,7 +48,7 @@ const TaskRow = (props) => {
     // The detailed view is displayed when the task list item is clicked.
     const detailedView = () => {
         return(
-            <div style={detailedRowDisplay}>
+            <div style={detailedRowDisplay as React.CSSProperties}>
                 <div style={rowStyle}>
                     <h2><u>{props.todo.name}</u></h2>
                 </div>

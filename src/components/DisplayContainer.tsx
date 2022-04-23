@@ -3,7 +3,7 @@ import NewSimpleTask from './NewSimpleTask';
 import TaskList from './TaskList';
 
 // Called from App.js
-const DisplayContainer = (props) => {
+const DisplayContainer = (props: any) => {
     //Calling props
     const priorities = props.priorities
     const dueDates = props.dueDates

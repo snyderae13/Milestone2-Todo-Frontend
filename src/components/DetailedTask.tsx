@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const NewDetailTask = (props) => {
+const NewDetailTask = (props: any) => {
   // navigate allows redirection to another page when the button is clicked
   const navigate = useNavigate();  
   
@@ -21,12 +21,12 @@ const NewDetailTask = (props) => {
   let [priority, setPriority] = useState("");
   let [dueDate, setDueDate] = useState("");
   let [description, setDescription] = useState("");
-  let [taskData, setTaskData] =useState([])
+  let [taskData, setTaskData] =useState<any[]>([])
   let [dateCreated, setDateCreated]= useState("")
 
   // need another submit but add description this time and console log the data 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     
     if(newTask){
       let data = {  name: name, priority: priority, dueDate: dueDate, description: description };
@@ -43,7 +43,7 @@ const NewDetailTask = (props) => {
 
   //Once the first useEffect is runs, the second useEffect will allow us to put the data into the forms 
   
-  useEffect((newTask )=> {
+  useEffect(()=> {
     if(!newTask) {
       
       TodoDataService.getTodo(id).then (response => {setTaskData(response.data)

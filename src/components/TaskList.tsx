@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import TaskGroup from './TaskGroup';
 import { DeleteTodoContext } from '../context/DeleteTodoContext';
-import TodoDataService from '../services/todoService.js'
+import TodoDataService from '../services/todoService'
 
 // Called from DisplayContainer.js
-const TaskList = (props) => {
+const TaskList = (props: any) => {
     // Use State for data pulled from database
     let [todoData, setTodoData] = useState([]);
 
@@ -12,7 +12,7 @@ const TaskList = (props) => {
     let [delFlag, toggleDelFlag] = useState(false)
 
     // Handle clicking delete button, causing refresh of tasks
-    const handleDelClick = (id, delFlag) => {
+    const handleDelClick = (id: any, delFlag: any) => {
         try {
             TodoDataService.deleteTodo(id);
             toggleDelFlag(!delFlag)
@@ -35,17 +35,17 @@ const TaskList = (props) => {
     let data = [{_id: "", name: "", priority: "", dueDate: "", description: ""}]
     
     // Need to fill groupTodoList whether sorting by priority or dueDate
-    let groupTodosList = [];
+    let groupTodosList: {} = [];
 
     // Determine that sorting by priorities
     if (priorities) {
-        let criticalTodos = [];
-        let highTodos = [];
-        let mediumTodos = [];
-        let lowTodos = [];
+        let criticalTodos: any[] = [];
+        let highTodos: any[] = [];
+        let mediumTodos: any[] = [];
+        let lowTodos: any[] = [];
 
         // Function to sort todos by priority and push them to an array of the same type
-        const sortByPriority = (todo) => {
+        const sortByPriority = (todo: any) => {
             if (todo.priority === "Critical") {
                 criticalTodos.push(todo);
             } else if (todo.priority === "High") {
@@ -95,11 +95,11 @@ const TaskList = (props) => {
 
     // Determine if sorting by dueDates
     if (dueDates) {
-        let pastTodos = []
-        let todayTodos = [];
-        let tomorrowTodos = [];
-        let thisWeekTodos = [];
-        let futureTodos = [];
+        let pastTodos: any[] = []
+        let todayTodos: any[] = [];
+        let tomorrowTodos: any[] = [];
+        let thisWeekTodos: any[] = [];
+        let futureTodos: any[] = [];
 
         // Need today's date, but do not want time to be part of it, since user selected due date did not have a time
         const todayDate = new Date();
@@ -112,7 +112,7 @@ const TaskList = (props) => {
         const msInOneDay = 1000 * 60 * 60 * 24;
 
         // Function to sort tasks by dueDate categories and push them to an array of the same type
-        const sortByDate = (todo) => {
+        const sortByDate = (todo: any) => {
             // Find the difference in ms between today and the dueDate
             let deconstructedDueDate = todo.dueDate.split('-')
             let dueYear = deconstructedDueDate[0];

@@ -4,7 +4,7 @@ import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
 
 // Called from TaskList.js
-const TaskGroup = (props) => {
+const TaskGroup = (props: any) => {
     //Calling props
     let header = props.header;
     let data = props.data;
@@ -29,7 +29,7 @@ const TaskGroup = (props) => {
 
     // If the data passed in has data in it, send each task to the the TaskRow React Component. Otherwise pass in an object that will display 'No todos found' under the priority.
     if(data.length > 0) {
-        todosList = data.map(todo => {
+        todosList = data.map((todo: { _id: React.Key; }) => {
         return(
             <li key={todo._id} >
                 <div style={rowStyle}>

@@ -5,20 +5,20 @@ class TodoDataService {
         return axios.get('https://todolistmilestone2.herokuapp.com/todos')
     }
 
-    getTodo = (id) => {
+    getTodo = (id: any) => {
         return axios.get(`https://todolistmilestone2.herokuapp.com/todos/${id}`)
     }
 
-    createTodo = (data) => {
+    createTodo = (data: any) => {
         return axios.post('https://todolistmilestone2.herokuapp.com/todos/new', data)
         
     }
 
-    updateTodo = (id, data) => {
+    updateTodo = (id: any, data: any) => {
         return axios.put(`https://todolistmilestone2.herokuapp.com/todos/${id}`, data)
     }
 
-    deleteTodo = (id) => {
+    deleteTodo = (id: any) => {
         return axios.delete(`https://todolistmilestone2.herokuapp.com/todos/${id}`)
     }
 

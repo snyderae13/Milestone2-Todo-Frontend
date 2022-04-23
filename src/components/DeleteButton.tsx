@@ -3,7 +3,7 @@ import {Button} from 'react-bootstrap';
 import {DeleteTodoContext} from '../context/DeleteTodoContext';
 
 // Called from TaskRow.js
-const DeleteButton = (props) => {
+const DeleteButton = (props: any) => {
     // Props
     let id = props.id
 

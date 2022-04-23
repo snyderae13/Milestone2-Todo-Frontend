@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 
 // Called from TaskRow.js
-function EditButton(props) {
+function EditButton(props: any) {
     // navigate allows redirection to another page when the button is clicked
     const navigate = useNavigate();
     
@@ -12,7 +12,7 @@ function EditButton(props) {
     let sort = props.sort;
 
     // Handle click function redirects to the TaskForm, including the taskId as a param in the url
-    const handleClick = (e) => {
+    const handleClick = (e: any) => {
         navigate(`/todos/${id}/${sort}`);
     }
 

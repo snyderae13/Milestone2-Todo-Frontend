@@ -15,7 +15,7 @@ const NewDetailTask = () => {
 
   // need another submit but add description this time and console log the data 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     let data = {  name: name, priority: priority, dueDate: dueDate, description: description };
     TodoDataService.createTodo(data);
@@ -26,8 +26,8 @@ const NewDetailTask = () => {
 
 
   const taskStyle = {
-    border: 2px solid grey;
-    border-radius: 10px;
+    border: "2px solid gray",
+    borderRadius: "10px"
   }
 
 
